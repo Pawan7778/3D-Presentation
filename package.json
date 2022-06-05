@@ -1,7 +1,8 @@
 {
-  "repository": "#",
-  "license": "UNLICENSED",
+  "homepage": "https://Pawan7778.github.io/3D-Presentation",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "build": "webpack --config ./bundler/webpack.prod.js",
     "dev": "webpack serve --config ./bundler/webpack.dev.js"
   },
@@ -30,5 +31,8 @@
     "webpack-cli": "^4.5.0",
     "webpack-dev-server": "^3.11.2",
     "webpack-merge": "^5.7.3"
+  },
+  "devDependencies": {
+    "gh-pages": "^4.0.0"
   }
 }
