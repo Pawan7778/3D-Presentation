@@ -15,13 +15,15 @@ import gsap from 'gsap'
 // Debug
 // const debugObject = {}
 const gui = new dat.GUI({
-    width: 400
+    closed: true,
+    width: 300,
 })
+
 
 /**
  * Sizes
  */
- const sizes = {
+const sizes = {
     width: window.innerWidth,
     height: window.innerHeight
 }
@@ -40,10 +42,12 @@ const renderer = new THREE.WebGLRenderer({
 
 //Camera
 const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 1000)
+scene.add(camera);
 
 
 
 const interaction = new Interaction(renderer, scene, camera);
+
 
 
 
@@ -58,16 +62,37 @@ gltfLoader.setDRACOLoader(dracoLoader)
 //Controls
 
 const controls = new OrbitControls(camera, canvas)
-controls.enableDamping = true
 controls.enabled = true
-controls.screenSpacePanning = false
-controls.minPolarAngle = 1
-controls.maxPolarAngle = 90
+controls.screenSpacePanning = true
+controls.minAzimuthAngle = THREE.Math.degToRad(180 + 150)
+controls.maxAzimuthAngle = THREE.Math.degToRad(180 - 140);
+controls.minPolarAngle = THREE.Math.degToRad(45)
+controls.maxPolarAngle = THREE.Math.degToRad(90);
+controls.minDistance = 10;
+controls.maxDistance = 50;
 controls.mouseButtons.LEFT = THREE.MOUSE.PAN
-controls.mouseButtons.RIGHT = THREE.MOUSE.ROTATE
+// controls.mouseButtons.RIGHT = THREE.MOUSE.ROTATE
 
 controls.touches.ONE = THREE.TOUCH.PAN
-controls.touches.TWO = THREE.TOUCH.DOLLY_ROTATE
+
+
+//Light
+const light1 = new THREE.PointLight("#ffff", 3, 50);
+light1.position.set(15.429, 13.675, 18.854);
+scene.add(light1);
+
+
+
+gui.add(light1.position, 'x').min(-100).max(100).step(0.001).name("PointLight1X")
+gui.add(light1.position, 'y').min(-100).max(100).step(0.001).name("PointLight1Y")
+gui.add(light1.position, 'z').min(-600).max(100).step(0.001).name("PointLight1Z")
+
+
+
+const DirectionalLight = new THREE.DirectionalLight('#ffff', 0.1)
+scene.add(DirectionalLight)
+DirectionalLight.position.set(20, 10, 30)
+
 
 
 
@@ -80,123 +105,171 @@ let holding1position = []
 let holding2position = []
 let holding3position = []
 let holding4position = []
+let holding5position = []
+let holding6position = []
+let holding7position = []
+let holding8position = []
+let holding9position = []
+let holding10position = []
+let holding11position = []
+let holding12position = []
+let holding13position = []
+let holding14position = []
 
-
-function holding2() {
-    gsap.to(camera.position,{
-        duration: 2,
-        x : 14.309,
-        y :7.795,
-        z:-31.343,
-        ease : "Power4.easeOut",
+function holding1() {
+    
+    // controls.target = holding1position[0].position
+    gsap.to(camera.position, {
+        duration: 4,
+        x: 14.309,
+        y: 7.795,
+        z: 8.222,
+        ease: "Power4.easeOut",
     })
+    // camera.lookAt(holding1position[0].position)
+    // camera.updateProjectionMatrix();
+}
+function holding2() {
+    gsap.to(camera.position, {
+        duration: 2,
+        x: 14.309,
+        y: 7.795,
+        z: -28.343,
+        ease: "Power4.easeOut",
+    })
+    // controls.target = holding2position[0].position
+    // camera.lookAt(holding2position[0].position)
 }
 function holding3() {
-    gsap.to(camera.position,{
+    gsap.to(camera.position, {
         duration: 2,
-        x : 14.309,
-        y :7.795,
-        z:-70.229,
-        ease : "Power4.easeOut",
+        x: 7.8,
+        y: 9.1,
+        z: -72.348,
+        ease: "Power4.easeOut",
     })
+    // controls.target = holding3position[0].position
+    // camera.lookAt(holding3position[0].position)
 }
 function holding4() {
-    gsap.to(camera.position,{
+    gsap.to(camera.position, {
         duration: 2,
-        x : 14.309,
-        y :7.795,
-        z:-100.797,
-        ease : "Power4.easeOut",
+        x: 7.257,
+        y: 9.813,
+        z: -110.881,
+        ease: "Power4.easeOut",
     })
+    // controls.target = holding4position[0].position
+    // camera.lookAt(holding4position[0].position)
 }
 function holding5() {
-    gsap.to(camera.position,{
+    gsap.to(camera.position, {
         duration: 2,
-        x : 14.309,
-        y :7.795,
-        z:-138.69,
-        ease : "Power4.easeOut",
+        x: 7.656,
+        y: 9.836,
+        z: -150.612,
+        ease: "Power4.easeOut",
     })
+    // controls.target = holding5position[0].position
+    // camera.lookAt(holding5position[0].position)
 }
 function holding6() {
-    gsap.to(camera.position,{
+    gsap.to(camera.position, {
         duration: 2,
-        x : 14.309,
-        y :7.795,
-        z:-178.69400000000002,
-        ease : "Power4.easeOut",
+        x: 7.309,
+        y: 9.795,
+        z: -188.69400000000002,
+        ease: "Power4.easeOut",
     })
+    // controls.target = holding6position[0].position
+    // camera.lookAt(holding6position[0].position)
 }
 function holding7() {
-    gsap.to(camera.position,{
+    gsap.to(camera.position, {
         duration: 2,
-        x : 14.309,
-        y :7.795,
-        z:-217.143,
-        ease : "Power4.easeOut",
+        x: 7.309,
+        y: 9.795,
+        z: -225.143,
+        ease: "Power4.easeOut",
     })
+    // controls.target = holding7position[0].position
+    // camera.lookAt(holding7position[0].position)
 }
 function holding8() {
-    gsap.to(camera.position,{
+    // controls.target = holding8position[0].position
+    // camera.lookAt(holding8position[0].position)
+    gsap.to(camera.position, {
         duration: 2,
-        x : 14.309,
-        y :7.795,
-        z:-256.148,
-        ease : "Power4.easeOut",
+        x: 7.309,
+        y: 9.795,
+        z: -263.148,
+        ease: "Power4.easeOut",
     })
 }
 function holding9() {
-    gsap.to(camera.position,{
+    // controls.target = holding9position[0].position
+    // camera.lookAt(holding9position[0].position)
+    gsap.to(camera.position, {
         duration: 2,
-        x : 14.309,
-        y :7.795,
-        z:-295.596,
-        ease : "Power4.easeOut",
+        x: 7.309,
+        y: 9.795,
+        z: -303.596,
+        ease: "Power4.easeOut",
     })
 }
 function holding10() {
-    gsap.to(camera.position,{
+    // controls.target = holding10position[0].position
+    // camera.lookAt(holding10position[0].position)
+    gsap.to(camera.position, {
         duration: 2,
-        x : 14.309,
-        y :7.795,
-        z:-335.044,
-        ease : "Power4.easeOut",
+        x: 7.309,
+        y: 9.795,
+        z: -345.044,
+        ease: "Power4.easeOut",
     })
 }
 function holding11() {
-    gsap.to(camera.position,{
+    // controls.target = holding11position[0].position
+    // camera.lookAt(holding11position[0].position)
+    gsap.to(camera.position, {
         duration: 2,
-        x : 14.309,
-        y :7.795,
-        z:-374.05,
-        ease : "Power4.easeOut",
+        x: 7.309,
+        y: 9.795,
+        z: -382.05,
+        ease: "Power4.easeOut",
     })
 }
 function holding12() {
-    gsap.to(camera.position,{
+    // controls.target = holding12position[0].position
+    // camera.lookAt(holding13position[0].position)
+    gsap.to(camera.position, {
         duration: 2,
-        x : 14.309,
-        y :7.795,
-        z:-413.055,
-        ease : "Power4.easeOut",
+        x: 7.309,
+        y: 9.795,
+        z: -420.055,
+        ease: "Power4.easeOut",
     })
 }
 function holding13() {
-    gsap.to(camera.position,{
+    // controls.target = holding13position[0].position
+    // camera.lookAt(holding13position[0].position)
+        gsap.to(camera.position, {
         duration: 2,
-        x : 14.309,
-        y :7.795,
-        z:-452.052,
-        ease : "Power4.easeOut",
+        x: 7.309,
+        y: 9.795,
+        z: -460.052,
+        ease: "Power4.easeOut",
     })
 }
 function holding14() {
-    gsap.to(camera.position,{
+    // camera.lookAt(holding14position[0].position)
+    // controls.target = holding14position[0].position
+    gsap.to(camera.position, {
         duration: 2,
-        x : 14.309,
-        y :7.795,
-        z:-491.508,
-        ease : "Power4.easeOut",
+        x: 7.309,
+        y: 9.795,
+        z: -500.508,
+        ease: "Power4.easeOut",
     })
 }
 
@@ -204,7 +277,7 @@ function holding14() {
 var i = 0
 
 var arr = [
-    "test",
+    holding1,
     holding2,
     holding3,
     holding4,
@@ -222,17 +295,17 @@ var arr = [
 
 
 function nextItem() {
-    i = i + 1; // increase i by one
-    i = i % arr.length; // if we've gone too high, start from `0` again
-    return arr[i]; // give us back the item of where we are now
+    i = i + 1;
+    i = i % arr.length;
+    return arr[i];
 }
 
 function prevItem() {
-    if (i === 0) { // i would become 0
-        i = arr.length; // so put it at the other end of the array
+    if (i === 0) {
+        i = arr.length;
     }
-    i = i - 1; // decrease by one
-    return arr[i]; // give us back the item of where we are now
+    i = i - 1;
+    return arr[i];
 }
 
 const btn_nxt = document.querySelector('button.next_btn');
@@ -249,71 +322,121 @@ btn_prev.onclick = (event) => {
     prev()
 };
 
-
-
-
+let start = []
 /**
  * Model
  */
- gltfLoader.load(
-    'LAST.glb',
-    (gltf) =>
-    {
-   
+gltfLoader.load(
+    'start added.glb',
+    (gltf) => {
+
         scene.add(gltf.scene)
         console.log(gltf.scene);
         
-        for(const holding of gltf.scene.children)
-        {
-            if (holding.name === "a") {
+
+        for (const holding of gltf.scene.children) {
+            if (holding.name === "start") {
+                holding.position.y = 5
+                holding.position.x = 14
+                holding.position.z = 16
+
+                camera.lookAt(holding.position)
                 holding.cursor = 'Pointer'
-                holding.on('click' , (ev) => {
-                    document.querySelector("div.buttons").style.visibility = 'visible'
-                    camera.lookAt(ev.target.position)
-                    gsap.to(camera.position,{
-                        duration: 2,
-                        x : 14.309,
-                        y :7.795,
-                        z:8.222,
-                        ease : "Power4.easeOut",
+                holding.on('click', (ev) => {
+                    const t2 = gsap.timeline({onComplete : () => {
+                        document.querySelector("div.buttons").style.visibility = 'visible'
+                        camera.lookAt(holding1position[0].position)
+                        camera.updateProjectionMatrix()
+                    }})
+                    t2.to(camera.position, { z: -500, duration: 8, delay: 0.5 })
+                    t2.to(camera.position, {
+                        x: 14.309,
+                        y: 7.795,
+                        z: 10.222, duration: 1
                     })
+                    const t1 = gsap.timeline()
+
+                    t1.to(light1.position, { z: -500, duration: 8, })
+                    t1.to(DirectionalLight, { intensity: 1.2, duration: 5, ease: "easeOut" })
+                    t1.to(light1, { intensity: 0, duration: 1 })
+
+                    
                 })
-                holding.on('touchstart' , (ev) => {
+                holding.on('touchstart', (ev) => {
                     document.querySelector("div.buttons").style.visibility = 'visible'
-                    camera.lookAt(ev.target.position)
-                    gsap.to(camera.position,{
-                        duration: 2,
-                        x : 0,
-                        y :11.706,
-                        z:13.007,
-                        ease : "easeOut",
+                    const t2 = gsap.timeline({onComplete : () => {
+                        camera.lookAt(holding1position[0].position)
+                        camera.updateProjectionMatrix()
+                    }})
+                    t2.to(camera.position, { z: -500, duration: 8, delay: 0.5 })
+                    t2.to(camera.position, {
+                        x: 14.309,
+                        y: 7.795,
+                        z: 10.222, duration: 1
                     })
+                    const t1 = gsap.timeline()
+
+                    t1.to(light1.position, { z: -500, duration: 8, })
+                    t1.to(DirectionalLight, { intensity: 1.2, duration: 5, ease: "easeOut" })
+                    t1.to(light1, { intensity: 0, duration: 1 })
+
+                    
                 })
+            }
+            if (holding.name === "a") {
+                holding1position.push(holding)
+                
             }
             if (holding.name === "b") {
                 holding2position.push(holding)
-             
+
             }
             if (holding.name === "c") {
-                holding3position = holding
-              
-
-            }  
+                holding3position.push(holding)
+            }
             if (holding.name === "d") {
-                holding4position = holding
-            }  
-        scene.add(gltf.scene)
-}})
+                holding4position.push(holding)
+            }
+            if (holding.name === "e") {
+                holding5position.push(holding)
+            }
+            if (holding.name === "f") {
+                holding6position.push(holding)
+            }
+            if (holding.name === "g") {
+                holding7position.push(holding)
+            }
+            if (holding.name === "h") {
+                holding8position.push(holding)
+            }
+            if (holding.name === "i") {
+                holding9position.push(holding)
+            }
+            if (holding.name === "j") {
+                holding10position.push(holding)
+            }
+            if (holding.name === "k") {
+                holding11position.push(holding)
+            }
+            if (holding.name === "l") {
+                holding12position.push(holding)
+            }
+            if (holding.name === "m") {
+                holding13position.push(holding)
+            }
+            if (holding.name === "n") {
+                holding14position.push(holding)
+            }
+            
+        }
+    })
 
-console.log(holding2position);
 
-
-window.addEventListener('resize', () =>
-{
+window.addEventListener('resize', () => {
     // Update sizes
     sizes.width = window.innerWidth
     sizes.height = window.innerHeight
-
+    
     // Update camera
     camera.aspect = sizes.width / sizes.height
     camera.updateProjectionMatrix()
@@ -328,30 +451,15 @@ window.addEventListener('resize', () =>
  * Camera
  */
 // Base camera
-camera.position.x = 14.309
-camera.position.y = 7.795
-camera.position.z = 27.889
+camera.position.x = 24.414
+camera.position.y = 17.992
+camera.position.z = 37.27
 
-gui.add(camera.position , 'x').min(-100).max(100).step(0.001).name('cameraX')
-gui.add(camera.position , 'y').min(-100).max(100).step(0.001).name('cameraY')
-gui.add(camera.position , 'z').min(-600).max(100).step(0.001).name('cameraZ')
-
+gui.add(camera.position, 'x').min(-100).max(100).step(0.001).name('cameraX')
+gui.add(camera.position, 'y').min(-100).max(100).step(0.001).name('cameraY')
+gui.add(camera.position, 'z').min(-600).max(100).step(0.001).name('cameraZ')
 
 scene.add(camera)
-
-const light1 = new THREE.PointLight( "#ffff", 2, 300 );
-light1.position.set( 45, 50, 70 );
-scene.add( light1 );
-const light2 = new THREE.PointLight( "#ffff", 1, 300 );
-light2.position.set( 45, 50, -150 );
-scene.add( light2 );
-const light3 = new THREE.PointLight( "#ffff", 2, 300 );
-light3.position.set( 45, 50, -300 );
-scene.add( light3 );
-
-
-
-
 
 /**
  * Renderer
@@ -362,19 +470,14 @@ renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
 renderer.outputEncoding = THREE.sRGBEncoding
 
 
-
 /**
  * Animate
  */
 const clock = new THREE.Clock()
 
-const tick = () =>
-{
+const tick = () => {
+
     const elapsedTime = clock.getElapsedTime()
-
-    //Update material portal light
-    // portalLightMaterial.uniforms.uTime.value = elapsedTime
-
     // Update controls
     // controls.update()
 
