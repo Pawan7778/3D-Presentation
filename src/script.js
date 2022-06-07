@@ -73,7 +73,7 @@ controls.maxDistance = 50;
 controls.mouseButtons.LEFT = THREE.MOUSE.PAN
 // controls.mouseButtons.RIGHT = THREE.MOUSE.ROTATE
 
-controls.touches.ONE = THREE.TOUCH.PAN
+// controls.touches.ONE = THREE.TOUCH.PAN
 
 
 //Light
@@ -143,7 +143,7 @@ function holding2() {
 function holding3() {
     gsap.to(camera.position, {
         duration: 2,
-        x: 7.8,
+        x: 10.8,
         y: 9.1,
         z: -72.348,
         ease: "Power4.easeOut",
@@ -154,7 +154,7 @@ function holding3() {
 function holding4() {
     gsap.to(camera.position, {
         duration: 2,
-        x: 7.257,
+        x: 10.257,
         y: 9.813,
         z: -110.881,
         ease: "Power4.easeOut",
@@ -165,7 +165,7 @@ function holding4() {
 function holding5() {
     gsap.to(camera.position, {
         duration: 2,
-        x: 7.656,
+        x: 10.656,
         y: 9.836,
         z: -150.612,
         ease: "Power4.easeOut",
@@ -176,7 +176,7 @@ function holding5() {
 function holding6() {
     gsap.to(camera.position, {
         duration: 2,
-        x: 7.309,
+        x: 10.309,
         y: 9.795,
         z: -188.69400000000002,
         ease: "Power4.easeOut",
@@ -187,9 +187,9 @@ function holding6() {
 function holding7() {
     gsap.to(camera.position, {
         duration: 2,
-        x: 7.309,
+        x: 11.309,
         y: 9.795,
-        z: -225.143,
+        z: -228.143,
         ease: "Power4.easeOut",
     })
     // controls.target = holding7position[0].position
@@ -200,9 +200,9 @@ function holding8() {
     // camera.lookAt(holding8position[0].position)
     gsap.to(camera.position, {
         duration: 2,
-        x: 7.309,
+        x: 10.309,
         y: 9.795,
-        z: -263.148,
+        z: -266,
         ease: "Power4.easeOut",
     })
 }
@@ -211,7 +211,7 @@ function holding9() {
     // camera.lookAt(holding9position[0].position)
     gsap.to(camera.position, {
         duration: 2,
-        x: 7.309,
+        x: 10.309,
         y: 9.795,
         z: -303.596,
         ease: "Power4.easeOut",
@@ -222,7 +222,7 @@ function holding10() {
     // camera.lookAt(holding10position[0].position)
     gsap.to(camera.position, {
         duration: 2,
-        x: 7.309,
+        x: 10.309,
         y: 9.795,
         z: -345.044,
         ease: "Power4.easeOut",
@@ -233,9 +233,9 @@ function holding11() {
     // camera.lookAt(holding11position[0].position)
     gsap.to(camera.position, {
         duration: 2,
-        x: 7.309,
+        x: 10.309,
         y: 9.795,
-        z: -382.05,
+        z: -384.05,
         ease: "Power4.easeOut",
     })
 }
@@ -244,9 +244,9 @@ function holding12() {
     // camera.lookAt(holding13position[0].position)
     gsap.to(camera.position, {
         duration: 2,
-        x: 7.309,
+        x: 10.309,
         y: 9.795,
-        z: -420.055,
+        z: -423.055,
         ease: "Power4.easeOut",
     })
 }
@@ -255,9 +255,9 @@ function holding13() {
     // camera.lookAt(holding13position[0].position)
         gsap.to(camera.position, {
         duration: 2,
-        x: 7.309,
+        x: 10.309,
         y: 9.795,
-        z: -460.052,
+        z: -462.052,
         ease: "Power4.easeOut",
     })
 }
@@ -266,7 +266,7 @@ function holding14() {
     // controls.target = holding14position[0].position
     gsap.to(camera.position, {
         duration: 2,
-        x: 7.309,
+        x: 10.309,
         y: 9.795,
         z: -500.508,
         ease: "Power4.easeOut",
